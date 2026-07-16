@@ -1,11 +1,9 @@
 import { useState } from "react";
 import { shortenUrl } from "../services/urlservices";
 
-
 function UrlForm({setShortUrl}){
 
   const [url,setUrl] = useState("");
-
 
   async function handleSubmit(){
 
@@ -14,7 +12,6 @@ function UrlForm({setShortUrl}){
     setShortUrl(result.shortUrl);
 
   }
-
 
   return(
 
@@ -30,7 +27,6 @@ function UrlForm({setShortUrl}){
           onChange={(e) => setUrl(e.target.value)}
         />
 
-
         <button 
           className="btn btn-primary mt-3"
           onClick={handleSubmit}
@@ -45,6 +41,5 @@ function UrlForm({setShortUrl}){
   );
 
 }
-
 
 export default UrlForm;
