@@ -1,6 +1,464 @@
-html,
-body,
-#root {
-  height: 100%;
+/* 
+  =========================================
+  GLOBAL STYLES & MODERN VIBRANT THEME (Shortly)
+  =========================================
+  This stylesheet defines modern, vibrant CSS styles for the 'Shortly' web app.
+  We use an Indigo & Violet color theme to look extremely professional and attractive.
+*/
+
+/* Import Lato and Asap fonts from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Asap:wght@400;700;900&family=Lato:wght@400;700;900&display=swap');
+
+:root {
+  /* Branding Colors */
+  --primary-color: #4f46e5;     /* Vibrant Indigo */
+  --primary-hover: #3730a3;     /* Darker Indigo for buttons */
+  --accent-color: #7c3aed;      /* Violet accent for logos and highlights */
+  --bg-light: #f8fafc;          /* Off-white Slate background */
+  --text-dark: #0f172a;         /* Dark Slate for readability */
+  --text-muted: #475569;        /* Medium Slate for descriptions */
+  --border-color: #cbd5e1;      /* Slate border color */
+}
+
+/* Base Body Styles */
+body {
+  background-color: var(--bg-light);
+  font-family: 'Lato', Arial, sans-serif;
+  color: var(--text-dark);
   margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Headings use the Asap font */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Asap', sans-serif;
+  color: var(--text-dark);
+  font-weight: 700;
+}
+
+/* Page Layout Wrapper */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1; /* Pushes footer to the bottom of the page */
+  padding: 40px 15px;
+}
+
+/* 
+  =========================================
+  NAVBAR & HEADER STYLES
+  =========================================
+*/
+.custom-header {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  padding: 15px 0;
+}
+
+.logo-link {
+  font-family: 'Asap', sans-serif;
+  font-size: 34px;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-decoration: none;
+  letter-spacing: -1.5px;
+  transition: opacity 0.2s ease;
+}
+
+.logo-link:hover {
+  opacity: 0.9;
+  text-decoration: none;
+}
+
+/* 
+  =========================================
+  FORM & RESULT BOX STYLES
+  =========================================
+*/
+.url-box-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  border: 1px solid #e2e8f0;
+  padding: 40px 30px;
+  max-width: 758px;
+  margin: 0 auto 30px auto;
+  text-align: center;
+}
+
+.url-box-title {
+  font-size: 28px;
+  margin-bottom: 10px;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+}
+
+.form-url-container {
+  display: flex;
+  flex-direction: row;
+  max-width: 600px;
+  margin: 25px auto 0 auto;
+}
+
+.url-input {
+  flex: 1;
+  height: 56px;
+  padding: 10px 18px;
+  font-size: 16px;
+  font-family: 'Lato', sans-serif;
+  border: 2px solid var(--border-color);
+  border-right: 0;
+  border-radius: 8px 0 0 8px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.url-input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+}
+
+.url-submit-btn {
+  height: 56px;
+  padding: 0 28px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 0 8px 8px 0;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.2s ease;
+}
+
+.url-submit-btn:hover {
+  background-color: var(--primary-hover);
+}
+
+.box-desc-text {
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-top: 25px;
+}
+
+/* Result box matching the form box */
+.result-box-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  padding: 30px;
+  max-width: 758px;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.result-input-group {
+  display: flex;
+  flex-direction: row;
+  max-width: 600px;
+  margin: 15px auto 0 auto;
+}
+
+.result-link-display {
+  flex: 1;
+  height: 52px;
+  background-color: #f5f3ff; /* Light Violet Bg */
+  border: 2px solid #ddd6fe;
+  border-right: none;
+  border-radius: 8px 0 0 8px;
+  display: flex;
+  align-items: center;
+  padding: 0 18px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--accent-color);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.result-link-display:hover {
+  background-color: #ede9fe;
+  text-decoration: underline;
+}
+
+.copy-btn {
+  height: 52px;
+  padding: 0 24px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+  background-color: #10b981; /* Premium Emerald green */
+  border: none;
+  border-radius: 0 8px 8px 0;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.copy-btn:hover {
+  background-color: #059669;
+}
+
+.copy-btn.copied {
+  background-color: #64748b; /* Slate Gray */
+}
+
+/* 
+  =========================================
+  CARDS (STEP BY STEP WORKFLOW)
+  =========================================
+*/
+.steps-title {
+  text-align: center;
+  font-size: 26px;
+  margin: 50px 0 25px 0;
+  font-weight: 900;
+}
+
+.step-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 24px;
+  height: 100%;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.step-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.step-number {
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  color: #ffffff;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.step-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--text-dark);
+}
+
+.step-desc {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* 
+  =========================================
+  FEATURES SECTION
+  =========================================
+*/
+.features-container {
+  max-width: 900px;
+  margin: 50px auto;
+}
+
+.feature-col {
+  text-align: center;
+  padding: 20px 15px;
+}
+
+.feature-icon-wrapper {
+  color: var(--primary-color);
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s ease;
+}
+
+.feature-col:hover .feature-icon-wrapper {
+  transform: scale(1.1);
+}
+
+.feature-title {
+  font-size: 18px;
+  color: var(--text-dark);
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.feature-desc {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* 
+  =========================================
+  ACCORDION (FAQ SECTION)
+  =========================================
+*/
+.faq-section-title {
+  text-align: center;
+  font-size: 26px;
+  margin: 50px 0 25px 0;
+  font-weight: 900;
+}
+
+.faq-container {
+  max-width: 758px;
+  margin: 0 auto 50px auto;
+}
+
+.custom-accordion-item {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.custom-accordion-item.active {
+  border-color: #c084fc; /* soft violet border when active */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03);
+}
+
+.accordion-header-btn {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 18px 24px;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-dark);
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.2s ease;
+}
+
+.accordion-header-btn:hover {
+  background-color: #f8fafc;
+}
+
+.accordion-icon {
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--text-muted);
+  transition: transform 0.2s ease;
+}
+
+.custom-accordion-item.active .accordion-icon {
+  transform: rotate(45deg); /* morphs + to x */
+}
+
+.accordion-body-content {
+  padding: 0 24px 20px 24px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  border-top: 1px solid #f1f5f9;
+}
+
+/* 
+  =========================================
+  FOOTER STYLES
+  =========================================
+*/
+.custom-footer {
+  background-color: #0f172a; /* Slate 900 */
+  color: #94a3b8; /* Slate 400 */
+  border-top: 4px solid var(--primary-color);
+  padding: 40px 0;
+  text-align: center;
+  font-size: 15px;
+}
+
+.footer-nav {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 0 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-nav-link {
+  color: #a5b4fc; /* Slate Indigo */
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s ease;
+}
+
+.footer-nav-link:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+/* 
+  =========================================
+  RESPONSIVE STYLES
+  =========================================
+*/
+@media (max-width: 576px) {
+  .url-box-card {
+    padding: 30px 15px;
+  }
+  
+  .url-box-title {
+    font-size: 22px;
+  }
+
+  .form-url-container {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .url-input {
+    border-radius: 8px;
+    border-right: 2px solid var(--border-color);
+  }
+
+  .url-submit-btn {
+    border-radius: 8px;
+    width: 100%;
+  }
+
+  .result-input-group {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .result-link-display {
+    border-radius: 8px;
+    border-right: 2px solid #ddd6fe;
+  }
+
+  .copy-btn {
+    border-radius: 8px;
+    width: 100%;
+  }
 }
