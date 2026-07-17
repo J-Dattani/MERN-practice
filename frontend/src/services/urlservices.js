@@ -1,6 +1,3 @@
-// Determine the API URL dynamically:
-// - If the website is running locally (on localhost), we direct requests to our local backend at http://localhost:4000
-// - Otherwise, we use the Github Codespace URL or target production URL.
 const getApiUrl = () => {
   const host = window.location.hostname;
   if (host === "localhost" || host === "127.0.0.1") {
