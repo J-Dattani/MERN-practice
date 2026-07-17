@@ -3,7 +3,7 @@ const getApiUrl = () => {
   if (host === "localhost" || host === "127.0.0.1") {
     return "http://localhost:4000";
   }
-  return "https://literate-space-lamp-4j7jr6p644gpfv5j-4000.app.github.dev";
+  return import.meta.env.VITE_API_URL || "https://literate-space-lamp-4j7jr6p644gpfv5j-4000.app.github.dev";
 };
 
 const API_URL = getApiUrl();

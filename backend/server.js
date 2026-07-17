@@ -40,7 +40,7 @@ app.post('/shorten', async (req, res) => {
     const newUrl = new Url({ shortUrl, longUrl }); 
     await newUrl.save(); 
     
-    const baseUrl = `${req.protocol}://${req.get("host")}`; 
+    const baseUrl = process.env.FRONTEND_URL || `${req.protocol}://${req.get("host")}`; 
     res.status(201).json({ message: "URL Shortened Successfully", shortUrl: `${baseUrl}/${shortUrl}` }); 
   } catch (error) { 
     console.error(error); 
