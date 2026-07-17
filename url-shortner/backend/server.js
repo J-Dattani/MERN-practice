@@ -10,9 +10,9 @@ const app = express();
 app.use(cors()); 
 app.use(express.json()); 
 
-// Connecting MongoDB 
-mongoose.connect(process.env.MONGO_URI) 
-  .then(() => console.log("Connected to MongoDB Successfully")) 
+// Connecting MongoDB (with explicit dbName to avoid saving to default 'test' database)
+mongoose.connect(process.env.MONGO_URI, { dbName: "url-shortener" }) 
+  .then((conn) => console.log(`Connected to MongoDB Successfully: Database is "${conn.connection.name}"`)) 
   .catch((err) => console.error("Database Connection error: ", err)); 
 
 // Schema Definition 
